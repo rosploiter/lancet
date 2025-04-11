@@ -1,194 +1,589 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lancet</title>
-  <link rel="icon" href="https://burntribs24.github.io/icon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="https://lancet.xyz/icon.png" />
-  <meta property="og:title" content="Lancet" />
-  <meta property="og:description" content="The BEST free script for Washiez Exploiting." />
-  <meta property="og:image" content="https://lancet.xyz/icon.png" />
-  <meta property="og:url" content="https://lancet.xyz" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#10b981" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #000000, #0f2017);
-      color: white;
-      overflow-x: hidden;
-    }
-    h1 {
-      font-size: 4rem;
-      text-shadow: 0 0 10px #ffffff50;
-      text-align: center;
-      margin-top: 60px;
-    }
-    p {
-      font-size: 1.2rem;
-      color: #ccc;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 50px;
-      padding: 20px;
-      backdrop-filter: blur(12px);
-      background-color: rgba(17, 24, 39, 0.4);
-      border-radius: 20px;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-      flex-wrap: wrap;
-    }
-    .btn {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-    .btn-primary {
-      background-color: #10b981;
-      color: white;
-    }
-    .btn-primary:hover {
-      background-color: #059669;
-    }
-    .btn-secondary {
-      background-color: #111827;
-      color: #9ca3af;
-      border: 1px solid #374151;
-    }
-    .btn-secondary:hover {
-      background-color: #1f2937;
-    }
-    .grid-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(to right, #ffffff10 1px, transparent 1px), 
-                        linear-gradient(to bottom, #ffffff10 1px, transparent 1px);
-      background-size: 50px 50px;
-      z-index: -1;
-    }
-    .custom-toast {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #1f2937;
-      color: #d1d5db;
-      padding: 16px 24px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.3s forwards, fadeOut 0.5s forwards 2.5s;
-      font-size: 0.95rem;
-      z-index: 9999;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-    .section {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .section img {
-      max-width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #00000050;
-    }
-    .features {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 30px;
-      font-size: 1.1rem;
-      color: #d1d5db;
-      backdrop-filter: blur(10px);
-      background-color: rgba(17, 24, 39, 0.5);
-      padding: 30px;
-      border-radius: 20px;
-    }
-    @media (max-width: 768px) {
-      h1 { font-size: 2.5rem; }
-      p { font-size: 1rem; }
-      .btn-group { flex-direction: column; width: 90%; }
-      .section { padding: 40px 16px; }
-      .features { font-size: 1rem; padding: 20px; }
-      .custom-toast { right: 16px; bottom: 20px; padding: 14px 20px; font-size: 0.9rem; }
-      .section img { border-radius: 14px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lancet Script - Ultimate Flinging Power</title>
+    <style>
+       :root {
+            --primary: #059669;
+            --secondary: #047857;
+            --accent: #10b981;
+            --background: #0f1c18;
+            --text: #f3f4f6;
+            --card-bg: #132521;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .cursor-trail {
+            position: fixed; 
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            pointer-events: none;
+            opacity: 0.5;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+        }
+
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        header {
+            background-color: var(--secondary);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-glow {
+            position: absolute;
+            width: 150%;
+            height: 100px;
+            background: radial-gradient(ellipse at center, var(--accent) 0%, transparent 70%);
+            opacity: 0.2;
+            top: -50px;
+            left: -25%;
+            animation: glow 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { transform: translateY(0) scale(1); opacity: 0.1; }
+            100% { transform: translateY(10px) scale(1.1); opacity: 0.3; }
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--text);
+            text-shadow: 0 0 10px var(--accent);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .about {
+            margin-bottom: 4rem;
+            line-height: 1.6;
+        }
+
+        .scripts {
+            margin-bottom: 4rem;
+        }
+
+        .script-box {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(123, 104, 238, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .script-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(123, 104, 238, 0.2);
+        }
+
+        .script-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .script-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .script-badge {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--text);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .beta {
+            background-color: #b45309;
+        }
+
+        .code-container {
+            position: relative;
+            margin-top: 1rem;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            border-radius: 4px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--secondary);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .hall-of-fame {
+            margin-bottom: 4rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--secondary);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 1rem;
+        }
+
+        .button:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .button:active {
+            transform: scale(0.98);
+        }
+
+        .click-effect {
+            pointer-events: none;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            opacity: 0.5;
+            transform: translate(-50%, -50%) scale(0);
+            animation: clickEffect 0.5s ease-out;
+        }
+
+        @keyframes clickEffect {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+        }
+
+        /* Discord Button Styles */
+        .discord-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #5865F2;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 1rem;
+            margin-left: 1rem;
+        }
+
+        .discord-button:hover {
+            background-color: #4752c4;
+            transform: translateY(-2px);
+        }
+
+        .discord-button:active {
+            transform: scale(0.98);
+        }
+
+        .discord-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            fill: white;
+        }
+
+        .header-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .header-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .discord-button {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="grid-bg"></div>
-  <h1>Lancet</h1>
-  <p>An ultimate free script for Washiez Exploiting.</p>
-  <div class="btn-group" data-aos="zoom-in">
-    <button class="btn btn-primary" onclick="copyScript()">Copy Script</button>
-    <a href="https://discord.gg/7bhsj9jmyK" class="btn btn-secondary" target="_blank">Join Discord</a>
-  </div>
-  <div class="section" data-aos="fade-up">
-    <h2>Script Showcase</h2>
-    <img src="https://lancet.xyz/showcase.png" alt="Script Showcase" />
-  </div>
-  <div class="section" data-aos="fade-up">
-    <h2>Features</h2>
-    <div class="features">
-      <div>✔️ feature 1</div>
-      <div>✔️ feature 2</div>
-      <div>✔️ feature3</div>
-    </div>
-  </div>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-  <script>
-    function copyScript() {
-      const script = "loadstring(game:HttpGet("https://cdn.rtu.lol/hatfling.lua"))()";
-      navigator.clipboard.writeText(script).then(() => {
-        showToast("Copied script to clipboard.");
-      }).catch(err => {
-        showToast("Failed to copy script.");
-        console.error(err);
-      });
-    }
+    <div class="bg-particles" id="particles"></div>
+    
+    <header>
+        <div class="header-glow"></div>
+        <h1 class="logo">LANCET</h1>
+        <p class="tagline">Ultimate Script for Flinging Cars and Players in Washiez</p>
+        <div class="header-buttons">
+            <a href="#scripts" class="button">Get Scripts</a>
+            <a href="https://discord.gg/yzFv6XVMfM" class="discord-button" target="_blank">
+                <svg class="discord-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                    <path fill="currentColor" d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/>
+                </svg>
+                Join Discord
+            </a>
+        </div>
+    </header>
 
-    function showToast(message) {
-      const toast = document.createElement("div");
-      toast.className = "custom-toast";
-      toast.textContent = message;
-      document.body.appendChild(toast);
-      setTimeout(() => {
-        toast.remove();
-      }, 3000);
-    }
-  </script>
+    <div class="container">
+        <section class="about">
+            <h2 class="section-title">What is Lancet?</h2>
+            <p>
+                Lancet is a powerful script designed specifically for Washiez that gives you unprecedented flinging capabilities.
+                Whether you want to automatically fling vehicles, click to fling players, or use the newest hat-based flinging technology,
+                Lancet provides all the tools you need to dominate the game.
+            </p>
+            <p>
+                With cutting-edge physics manipulation and optimized performance, Lancet offers the smoothest and most reliable
+                flinging experience available. Join thousands of players already using Lancet to elevate their gameplay!
+            </p>
+        </section>
+
+        <section class="scripts" id="scripts">
+            <h2 class="section-title">Available Scripts</h2>
+            
+            <div class="script-box">
+                <h3>HatsFling</h3>
+                <span class="script-badge beta">Beta</span>
+                <span class="script-badge">Popular</span>
+                <span class="script-badge">Newest!</span>
+                <p class="script-description">
+                    Our newest innovation! This script uses your character's hats as fling projectiles,
+                    allowing for fast flinging and bypassing many anti-exploit measures.
+                </p>
+                <div class="code-container">
+                    <pre class="code-block">loadstring(game:HttpGet("https://cdn.rtu.lol/hatfling.lua"))()
+
+</pre>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+
+            <div class="script-box">
+                <h3>ClickFling</h3>
+                <span class="script-badge beta">No longer updated.</span>
+                <span class="script-badge">Stable</span>
+                <p class="script-description">
+                    Click on any vehicle to send them flying! This script gives you precise control over
+                    who you want to fling.
+                </p>
+                <div class="code-container">
+                    <pre class="code-block">loadstring(game:HttpGet("https://cdn.rtu.lol/lancet.lua"))()
+</pre>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="script-box">
+                <h3>AutoFling + Car Esp</h3>
+                <span class="script-badge beta">No longer updated.</span>
+                <span class="script-badge">Automatic!</span>
+                <p class="script-description">
+                    The classic fling script that automatically targets and flings nearby vehicles.
+                    Perfect for causing chaos without any manual targeting required!
+                    Contains a car esp aswell!
+                </p>
+                <div class="code-container">
+                    <pre class="code-block">loadstring(game:HttpGet("https://cdn.rtu.lol/autofling.lua"))()
+
+</pre>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="hall-of-fame">
+            <h2 class="section-title">Hall of Fame</h2>
+            <p>Amazing moments captured by Lancet users:</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://cdn.discordapp.com/attachments/1359612428152995971/1360300893941141514/h414KOf.png?ex=67fa9e6e&is=67f94cee&hm=e51067037e8cf84186cdbc1e49d8c75f890c333c7dffc26c639288aef9305853&" alt="placeholder" class="gallery-img">
+                    <div class="gallery-caption">Falseban found by Mye</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Lancet Script | Not affiliated with Washiez or Roblox</p>
+        <p>Use at your own risk. We are not responsible for any bans or consequences.</p>
+        <a href="https://discord.gg/yzFv6XVMfM" class="discord-button" target="_blank">
+            <svg class="discord-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                <path fill="currentColor" d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/>
+            </svg>
+            Join Our Discord
+        </a>
+    </footer>
+
+    <script>
+        // Create background particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Random size
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Animation
+                particle.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+                
+                // Float animation
+                function float() {
+                    const newPosX = Math.random() * 100;
+                    const newPosY = Math.random() * 100;
+                    
+                    particle.style.transition = `all ${Math.random() * 10 + 10}s linear`;
+                    particle.style.left = `${newPosX}%`;
+                    particle.style.top = `${newPosY}%`;
+                    
+                    setTimeout(float, (Math.random() * 10 + 10) * 1000);
+                }
+                
+                setTimeout(float, Math.random() * 1000);
+            }
+        }
+        
+        // Mouse trail effect
+        function createMouseTrail() {
+            const trailCount = 10;
+            const trails = [];
+            
+            for (let i = 0; i < trailCount; i++) {
+                const trail = document.createElement('div');
+                trail.classList.add('cursor-trail');
+                document.body.appendChild(trail);
+                trails.push(trail);
+            }
+            
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function updateTrails() {
+                trails.forEach((trail, index) => {
+                    setTimeout(() => {
+                        trail.style.left = `${mouseX}px`;
+                        trail.style.top = `${mouseY}px`;
+                        trail.style.opacity = 1 - (index / trailCount);
+                        trail.style.transform = `translate(-50%, -50%) scale(${1 - (index / trailCount)})`;
+                    }, index * 50);
+                });
+                
+                requestAnimationFrame(updateTrails);
+            }
+            
+            updateTrails();
+        }
+        
+        // Click effect
+        document.addEventListener('click', (e) => {
+            const clickEffect = document.createElement('div');
+            clickEffect.classList.add('click-effect');
+            clickEffect.style.left = `${e.clientX}px`;
+            clickEffect.style.top = `${e.clientY}px`;
+            document.body.appendChild(clickEffect);
+            
+            setTimeout(() => {
+                clickEffect.remove();
+            }, 500);
+        });
+        
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling;
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Change button text temporarily
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        }
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            createParticles();
+            createMouseTrail();
+        });
+        
+        // Make copy function available globally
+        window.copyCode = copyCode;
+    </script>
 </body>
 </html>
